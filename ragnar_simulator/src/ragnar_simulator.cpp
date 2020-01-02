@@ -112,7 +112,7 @@ void ragnar_simulator::RagnarSimulator::pollAction()
   }
 }
 
-void ragnar_simulator::RagnarSimulator::goalCB(JointTractoryActionServer::GoalHandle& gh)
+void ragnar_simulator::RagnarSimulator::goalCB(JointTractoryActionServer::GoalHandle gh)
 {
   ROS_INFO("Recieved new goal request");
   if (has_active_goal_)
@@ -130,7 +130,7 @@ void ragnar_simulator::RagnarSimulator::goalCB(JointTractoryActionServer::GoalHa
   setTrajectory(traj);
 }
 
-void ragnar_simulator::RagnarSimulator::cancelCB(JointTractoryActionServer::GoalHandle &gh)
+void ragnar_simulator::RagnarSimulator::cancelCB(JointTractoryActionServer::GoalHandle gh)
 {
   ROS_INFO("Cancelling goal");
   if (active_goal_ == gh)

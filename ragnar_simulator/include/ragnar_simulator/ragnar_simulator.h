@@ -36,8 +36,8 @@ private:
   // Action server
   typedef actionlib::ActionServer<control_msgs::FollowJointTrajectoryAction> JointTractoryActionServer;
 
-  void goalCB(JointTractoryActionServer::GoalHandle & gh);
-  void cancelCB(JointTractoryActionServer::GoalHandle & gh);
+  void goalCB(JointTractoryActionServer::GoalHandle gh);
+  void cancelCB(JointTractoryActionServer::GoalHandle gh);
 
   JointTractoryActionServer action_server_;
   JointTractoryActionServer::GoalHandle active_goal_;
