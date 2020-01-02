@@ -170,13 +170,13 @@ static trajectory_msgs::JointTrajectory makeLineTrajectory()
   {
     throw std::runtime_error("Linear movement planning failed");
   }
-  
+
   const double dt = 0.1;
   double total_t = dt;
 
   for (unsigned i = 0; i < points.size(); ++i)
   {
-    JointTrajectoryPoint pt;  
+    JointTrajectoryPoint pt;
     pt.positions.assign(points[i].joints, points[i].joints+4);
     pt.time_from_start = ros::Duration(total_t);
     total_t += dt;
@@ -291,14 +291,14 @@ int main(int argc, char** argv)
   ros::Publisher traj_pub = nh.advertise<trajectory_msgs::JointTrajectory>("joint_path_command", 1);
 
   // trajectory_msgs::JointTrajectory traj = makeLineTrajectory();
-  // trajectory_msgs::JointTrajectory traj = makeCircleTrajectory(); 
+  // trajectory_msgs::JointTrajectory traj = makeCircleTrajectory();
   trajectory_msgs::JointTrajectory traj = makePickPlaceTrajectory();
-  // 
+  //
   std::vector<std::string> names;
   names.push_back("joint_1");
   names.push_back("joint_2");
   names.push_back("joint_3");
-  names.push_back("joint_4"); 
+  names.push_back("joint_4");
 
   traj.joint_names = names;
   ros::Duration(0.5).sleep();

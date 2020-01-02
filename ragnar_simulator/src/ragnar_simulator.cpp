@@ -3,7 +3,7 @@
 #include <ros/assert.h>
 
 
-ragnar_simulator::RagnarSimulator::RagnarSimulator(const std::vector<double>& seed_pose, 
+ragnar_simulator::RagnarSimulator::RagnarSimulator(const std::vector<double>& seed_pose,
                                                    const std::vector<std::string>& joint_names,
                                                    ros::NodeHandle& nh)
   : joint_names_(joint_names)
@@ -41,7 +41,7 @@ static double linearInterpolate(double start, double stop, double ratio)
 
   // Computes the robot position at a given time based on the currently active
   // trajectory
-bool ragnar_simulator::RagnarSimulator::computeTrajectoryPosition(const ros::Time& tm, 
+bool ragnar_simulator::RagnarSimulator::computeTrajectoryPosition(const ros::Time& tm,
                                                                   std::vector<double>& output) const
 {
   // Check to see if time is in past of traj
@@ -56,7 +56,7 @@ bool ragnar_simulator::RagnarSimulator::computeTrajectoryPosition(const ros::Tim
     output = traj_.points.back().positions;
     return true;
   }
-  
+
   // Otherwise the traj must be within the trajectory
   ros::Duration dt = tm - traj_start_time_;
 
@@ -91,7 +91,7 @@ bool ragnar_simulator::RagnarSimulator::computeTrajectoryPosition(const ros::Tim
   {
     const trajectory_msgs::JointTrajectoryPoint& start_pt = traj_.points[idx-1];
     // interpolate between two points
-    double ratio = (dt - start_pt.time_from_start).toSec() / (end_pt.time_from_start - start_pt.time_from_start).toSec();   
+    double ratio = (dt - start_pt.time_from_start).toSec() / (end_pt.time_from_start - start_pt.time_from_start).toSec();
 
     for (int i = 0; i < 4; ++i)
     {

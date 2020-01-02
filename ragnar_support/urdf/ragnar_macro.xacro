@@ -24,7 +24,7 @@
       </collision>
     </link>
 
-   
+
 
     <!-- The four ragnar arms -->
     <xacro:ragnar_leg prefix="${prefix}" num="1" x="0.122" y="0.249" z="-0.0877" r="-0.577" p="-0.783" w="-1.311" d1="0.300" d2="0.550"/>

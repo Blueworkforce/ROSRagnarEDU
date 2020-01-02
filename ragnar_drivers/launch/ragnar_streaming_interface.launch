@@ -1,4 +1,4 @@
-<!-- 
+<!--
   Wrapper launch file for the Motoman specific robot_state node.
 -->
 <launch>

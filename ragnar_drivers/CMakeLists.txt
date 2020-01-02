@@ -164,7 +164,7 @@ target_link_libraries(ragnar_streamer_node
 )
 
 add_executable(ragnar_action_test_node
-  src/action_test_node.cpp 
+  src/action_test_node.cpp
 )
 
 target_link_libraries(ragnar_action_test_node ${catkin_LIBRARIES})

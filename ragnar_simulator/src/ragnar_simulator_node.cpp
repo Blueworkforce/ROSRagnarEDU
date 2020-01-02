@@ -32,7 +32,7 @@ void setCurrentTrajectory(const trajectory_msgs::JointTrajectoryConstPtr& traj,
 
 int main(int argc, char** argv)
 {
-  const static double default_position[] = {-0.07979196, 0.07044869, 
+  const static double default_position[] = {-0.07979196, 0.07044869,
                                             -0.07044869, 0.07979196};
 
   ros::init(argc, argv, "ragnar_simulator_node");
@@ -58,17 +58,17 @@ int main(int argc, char** argv)
 
   double publish_rate;
   pnh.param<double>("rate", publish_rate, 30.0);
-  
+
   // instantiate simulation
   ragnar_simulator::RagnarSimulator sim (seed_position, joint_names, nh);
 
   // create pub/subscribers and wire them up
   ros::Publisher current_state_pub = nh.advertise<sensor_msgs::JointState>("joint_states", 1);
-  ros::Subscriber command_state_sub = 
-      nh.subscribe<trajectory_msgs::JointTrajectory>("joint_path_command", 
-                                                     1, 
-                                                     boost::bind(setCurrentTrajectory, 
-                                                                 _1, 
+  ros::Subscriber command_state_sub =
+      nh.subscribe<trajectory_msgs::JointTrajectory>("joint_path_command",
+                                                     1,
+                                                     boost::bind(setCurrentTrajectory,
+                                                                 _1,
                                                                  boost::ref(sim)));
   ros::Timer state_publish_timer =
       nh.createTimer(ros::Duration(1.0/publish_rate), boost::bind(publishCurrentState,
