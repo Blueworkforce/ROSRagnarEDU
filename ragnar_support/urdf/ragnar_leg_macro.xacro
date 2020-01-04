@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <robot name="ragnar" xmlns:xacro="http://ros.org/wiki/xacro">
-  <xacro:macro name="ragnar_leg" params=" prefix num x y z r p w d1 d2"> 
-    
+  <xacro:macro name="ragnar_leg" params=" prefix num x y z r p w d1 d2">
+
   <link name="${prefix}upper_arm_${num}">
-    
+
     <visual>
       <origin xyz="0 0 0" rpy="0 3.14 0" />
       <geometry>
@@ -34,7 +34,7 @@
         <color rgba="0.75 0.75 0.75 1" />
       </material>
     </visual>
-    
+
   </link>
 
   <joint name="${prefix}a${num}_j2a" type="floating">
@@ -55,7 +55,7 @@
       </material>
     </visual>
 
-    
+
   </link>
 
   <joint name="${prefix}a${num}_j2b" type="floating">

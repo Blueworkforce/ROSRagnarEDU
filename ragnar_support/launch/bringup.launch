@@ -17,7 +17,7 @@
     <arg name="robot_ip" value="$(arg robot_ip)"/>
   </include>
 
-  <!-- 
+  <!--
        If you have had other robots or joints in your scene, you would want
        to bring up a 'joint_state_publisher' as well. There is currently an
        issue with the ragnar state publisher that prevents this, however.

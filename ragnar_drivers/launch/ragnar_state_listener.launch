@@ -13,7 +13,7 @@
   <!-- Ragnar State Publisher -->
   <node name="ragnar_state_publisher" pkg="ragnar_state_publisher" type="ragnar_state_publisher_node">
     <!-- Prefix given to ragnar macro/xacro in URDF (defaults empty) -->
-    <param name="prefix" value=""/> 
+    <param name="prefix" value=""/>
   </node>
-  
+
 </launch>

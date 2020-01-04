@@ -21,7 +21,7 @@ struct IntermediatePoints
 
 
   ArmMatrixd A; // position of motors
-  
+
   ArmMatrixd B; // position of elbow
   ArmMatrixd B1;
   ArmMatrixd B2;

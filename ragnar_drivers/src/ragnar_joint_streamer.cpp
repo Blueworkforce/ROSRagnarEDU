@@ -196,7 +196,7 @@ ragnar_drivers::RagnarTrajectoryStreamer::RagnarTrajectoryStreamer()
    action_server_.start();
 }
 
-void ragnar_drivers::RagnarTrajectoryStreamer::goalCB(JointTractoryActionServer::GoalHandle& gh)
+void ragnar_drivers::RagnarTrajectoryStreamer::goalCB(JointTractoryActionServer::GoalHandle gh)
 {
   ROS_INFO("Recieved new goal request");
   if (has_active_goal_)
@@ -219,7 +219,7 @@ void ragnar_drivers::RagnarTrajectoryStreamer::goalCB(JointTractoryActionServer:
   jointTrajectoryCB( trajectory_msgs::JointTrajectoryConstPtr(new trajectory_msgs::JointTrajectory(traj)) );
 }
 
-void ragnar_drivers::RagnarTrajectoryStreamer::cancelCB(JointTractoryActionServer::GoalHandle& gh)
+void ragnar_drivers::RagnarTrajectoryStreamer::cancelCB(JointTractoryActionServer::GoalHandle gh)
 {
   ROS_INFO("Cancelling goal");
   if (active_goal_ == gh)

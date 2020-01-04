@@ -138,8 +138,8 @@ RagnarSolution::RagnarSolution(Config* config)
 	parameter[16] = config->value(ragnar_joint1_primary_arm_checksum)->by_default(0.0f)->as_number();
 	parameter[17] = config->value(ragnar_joint2_primary_arm_checksum)->by_default(0.0f)->as_number();
 	parameter[18] = config->value(ragnar_joint3_primary_arm_checksum)->by_default(0.0f)->as_number();
-	parameter[19] = config->value(ragnar_joint4_primary_arm_checksum)->by_default(0.0f)->as_number();	    
-    
+	parameter[19] = config->value(ragnar_joint4_primary_arm_checksum)->by_default(0.0f)->as_number();	
+
     // l2 : secondary_arm
 	parameter[20] = config->value(ragnar_joint1_secondary_arm_checksum)->by_default(0.0f)->as_number();
 	parameter[21] = config->value(ragnar_joint2_secondary_arm_checksum)->by_default(0.0f)->as_number();
@@ -280,7 +280,7 @@ void RagnarSolution::cartesian_to_actuator( float cartesian_mm[], float actuator
 		for (k = 0; k < 8; k++) {
 			leg[k] = parameter[i + (k << 2)];
 			sLeg[k] = sp[i + (k << 2)];
-			cLeg[k] = cp[i + (k << 2)];  
+			cLeg[k] = cp[i + (k << 2)];
 		}
 
 		dv0[0] = cLeg[7];
@@ -421,13 +421,13 @@ bool RagnarSolution::set_optional(const arm_options_t& options) {
 
 bool RagnarSolution::get_optional(arm_options_t& options) {
     options['a']= this->parameter[16]; // joint 1 primary arm
-    options['b']= this->parameter[17]; 
-    options['c']= this->parameter[18]; 
-    options['d']= this->parameter[19]; 
+    options['b']= this->parameter[17];
+    options['c']= this->parameter[18];
+    options['d']= this->parameter[19];
     options['A']= this->parameter[20]; // joint 1 secondary arm
-    options['B']= this->parameter[21]; 
-    options['C']= this->parameter[22]; 
-    options['D']= this->parameter[23]; 
+    options['B']= this->parameter[21];
+    options['C']= this->parameter[22];
+    options['D']= this->parameter[23];
 
     return true;
 };

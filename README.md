@@ -48,7 +48,7 @@ Note that the robot listens on the ```joint_path_command``` topic with type ```t
 ## Demonstrations
 After these other components have been launched, you may run a test script with:
 ```
-rosrun ragnar_kinematics ragnar_demo_motions 
+rosrun ragnar_kinematics ragnar_demo_motions
 ```
 
 **Please note that these motions may be unsafe**
